@@ -22,7 +22,7 @@ STAGE2_CFLAGS = $(CFLAGS) -I$(STAGE2_SRC_DIR)
 
 $(BUILD_DIR)/boot/stage2/%.s: $(STAGE2_SRC_DIR)/%.c $(PREPROC_ASM)
 	$(call mkdir_p,$(dir $@))
-	$(CC) $(STAGE2_CFLAGS) $(DEPFLAGS) -g0 -S -o - $< | sh $(PREPROC_ASM) > $@
+	set -o pipefail; $(CC) $(STAGE2_CFLAGS) $(DEPFLAGS) -g0 -S -o - $< | sh $(PREPROC_ASM) > $@
 
 $(STAGE2_C_ASM): $(STAGE2_S_OUTS)
 	$(call mkdir_p,$(dir $@))

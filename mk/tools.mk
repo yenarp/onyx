@@ -1,5 +1,6 @@
 SHELL := /bin/sh
 .ONESHELL:
+.DELETE_ON_ERROR:
 .SHELLFLAGS := -eu -c
 
 MKDIR_P := mkdir -p
