@@ -1,3 +1,4 @@
 .cache
 build
 bx_enh_dbg.ini
+compile_commands.json

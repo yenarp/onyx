@@ -1,0 +1,43 @@
+---
+Language: Cpp
+Standard: Latest
+
+IndentWidth: 4
+UseTab: Never
+ColumnLimit: 80
+ContinuationIndentWidth: 4
+
+AllowShortBlocksOnASingleLine: Never
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: None
+AllowShortLambdasOnASingleLine: None
+
+BreakBeforeBraces: Attach
+BraceWrapping:
+  AfterFunction: false
+  AfterControlStatement: Never  
+  AfterStruct: false
+  AfterUnion: false
+  AfterEnum: false
+  BeforeElse: false
+  BeforeWhile: false
+  IndentBraces: false
+
+SpaceBeforeParens: ControlStatements
+SpaceInEmptyParentheses: false
+SpacesInContainerLiterals: true
+SpaceAfterCStyleCast: false
+
+AlignAfterOpenBracket: Align
+AlignConsecutiveAssignments: false
+AlignConsecutiveDeclarations: false
+AlignTrailingComments: true
+
+PointerAlignment: Right
+
+SortIncludes: true
+IncludeBlocks: Preserve
+
+DerivePointerAlignment: false
+DisableFormat: false
