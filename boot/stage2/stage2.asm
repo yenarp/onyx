@@ -83,3 +83,5 @@ gdt_end:
 
 include 'c.asm'
 include 'isr.asm'
+
+lowbuf_storage: rb 16384
