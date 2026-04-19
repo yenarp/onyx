@@ -24,6 +24,8 @@ sed -E \
     -e 's/^\s*\.quad\s+/dq /g' \
     -e '/^\s*$/d' \
     -e 's/#/;/g' \
+    -e 's/\boffset\s+//g' \
+    -e 's/^\s*(sh[lr]|sa[lr]|ro[lr]|rc[lr])\s+([^,]+)$/\1 \2, 1/' \
     -e 's/^\s*\.l?comm\s+([a-zA-Z0-9_]+)\s*,\s*([0-9]+).*/\1: rb \2/g' \
     -e 's/^\s*\.zero\s+([0-9]+)/times \1 db 0/g' \
     -e 's/(byte|word|dword|qword)\s+ptr/\1/gi'
