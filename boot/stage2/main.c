@@ -1,6 +1,6 @@
 #include "dev/serial.h"
 
-void kernel_main(void) {
+void stage2_main(void) {
     SerialPort com1;
 
     serial_init(&com1, 0x3F8, SERIAL_BAUD_115200);
