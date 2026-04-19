@@ -39,6 +39,21 @@ pm_entry:
     or al, 2
     out 0x92, al
 
+    mov esp, esp
+    sub ebp, 6
+
+    ; prepare an idtr on the stack.
+    mov word [ebp], idt_end - idt_start - 1
+    mov dword [ebp + 2], idt_start
+
+    ; load the interrupt descriptor table.
+    lidt [ebp]
+
+    ; initialize the programmable interrupt controller.
+    call pic_init
+
+    sti
+
     jmp stage2_main
 
 gdt_start:
@@ -67,3 +82,4 @@ gdt_start:
 gdt_end:
 
 include 'c.asm'
+include 'isr.asm'

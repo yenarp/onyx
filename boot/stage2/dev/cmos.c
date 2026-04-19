@@ -46,9 +46,9 @@ static uint8_t cmos_read_reg(CmosState *state, uint8_t reg) {
 }
 
 static uint8_t bcd_to_bin(uint8_t bcd) {
-    __asm__ volatile("movb %%al, %%ah\n"
-                     "shrb $4, %%ah\n"
-                     "andb $0xf, %%al\n"
+    __asm__ volatile("mov ah, al\n"
+                     "shr ah, 4\n"
+                     "and al, 0xf\n"
                      "aad\n"
                      : "+a"(bcd));
 
