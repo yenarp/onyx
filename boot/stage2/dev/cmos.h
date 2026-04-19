@@ -48,4 +48,7 @@ void cmos_read_rtc(CmosState *state);
 
 bool cmos_battery_is_dead(CmosState *state);
 
+void nmi_disable(CmosState *state);
+void nmi_enable(CmosState *state);
+
 #endif /* STAGE2_DEV_CMOS_H */

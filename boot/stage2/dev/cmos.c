@@ -4,6 +4,8 @@
 #define REG_CTRL 0x70
 #define REG_DATA 0x71
 
+#define REG_DEFAULT 0xd
+
 #define REG_DIAGNOSTIC 0xe
 #define REG_DDT 0x10 /* Diskette Drive Type */
 
@@ -137,4 +139,18 @@ void cmos_read_rtc(CmosState *state) {
     state->last_read_time.month = mon;
 
     state->last_read_time.year = (century * 100) + yr;
+}
+
+void nmi_disable(CmosState *state) {
+    if (state->nmi_enabled) {
+        state->nmi_enabled = false;
+        cmos_ctrl(state, REG_DEFAULT);
+    }
+}
+
+void nmi_enable(CmosState *state) {
+    if (!state->nmi_enabled) {
+        state->nmi_enabled = true;
+        cmos_ctrl(state, REG_DEFAULT);
+    }
 }
