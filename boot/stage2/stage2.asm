@@ -39,7 +39,7 @@ pm_entry:
     or al, 2
     out 0x92, al
 
-    jmp kernel_main
+    jmp stage2_main
 
 gdt_start:
     dq 0x0
